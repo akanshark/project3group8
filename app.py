@@ -16,7 +16,7 @@ Base = automap_base()
 Base.prepare(autoload_with=engine)
 
 # Save reference to the table --> THIS LINE CAUSES ERROR
-#Dow = Base.classes.Dow
+Dow = Base.classes.Dow
 
 # flask setup
 app = Flask(__name__)
@@ -91,12 +91,12 @@ def chart():
 
     """Return a list of all dates for tickers"""
     # Query all dates
-    results = session.query(Dow.longBusinessSummary).all()
+    results = session.query(Dow).all()
 
     session.close()
-    businessprofiles = results
+    dates = results[3:270]
 
-    return jsonify(businessprofiles)
+    return jsonify(dates)
  
 
 
