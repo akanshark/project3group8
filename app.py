@@ -16,7 +16,7 @@ Base = automap_base()
 Base.prepare(autoload_with=engine)
 
 # Save reference to the table --> THIS LINE CAUSES ERROR
-Dow = Base.classes.Dow
+#Dow = Base.classes.Dow
 
 # flask setup
 app = Flask(__name__)
@@ -34,7 +34,7 @@ def welcome():
 
 
 @app.route('/api/v1.0/profile')
-def profile():
+def profile(start):
 
     # Create our session (link) from Python to the DB
     session = Session(engine)
@@ -42,7 +42,7 @@ def profile():
     """Return a list of all long business profiles for tickers"""
     # Query all profiles
     #results = session.query(stock_data.longBusinessSummary).all()
-    results = session.query(Dow.longBusinessSummary).all()
+    results = session.query(stock_data.longBusinessSummary).all()
 
     session.close()
     businessprofiles = results
@@ -52,51 +52,51 @@ def profile():
 
 
 
-@app.route('/api/v1.0/table')
-def table():
+# @app.route('/api/v1.0/table')
+# def table():
 
-    # Create our session (link) from Python to the DB
-    session = Session(engine)
+#     # Create our session (link) from Python to the DB
+#     session = Session(engine)
 
-    """Return a list of dictionaries for the values which will be in our table"""
-    # Query all table data
+#     """Return a list of dictionaries for the values which will be in our table"""
+#     # Query all table data
     
-    results = session.query(Dow.Ticker, Dow.MarketCap, Dow.FiftyTwoWeekHigh, Dow.EarningsPerShare, Dow.PE_Ratio, Dow.DividendYield, Dow.GrossProfitMargin, Dow.NetIncome, Dow.BookValuePerShare, Dow.TotalDebt, Dow.CurrentRatio, Dow.DebtToEquityRatio).all()
+#     results = session.query(Dow.Ticker, Dow.MarketCap, Dow.FiftyTwoWeekHigh, Dow.EarningsPerShare, Dow.PE_Ratio, Dow.DividendYield, Dow.GrossProfitMargin, Dow.NetIncome, Dow.BookValuePerShare, Dow.TotalDebt, Dow.CurrentRatio, Dow.DebtToEquityRatio).all()
 
-    session.close()
+#     session.close()
 
-    table = []
-    for Ticker, MarketCap, FiftyTwoWeekHigh, EarningsPerShare, PE_Ratio, DividendYield, GrossProfitMargin, NetIncome, BookValuePerShare, TotalDebt, CurrentRatio, DebtToEquityRatio in results:
-        table_dict = {}
-        table_dict["Ticker"] = Ticker
-        table_dict["MarketCap"] = MarketCap
-        table_dict["FiftyTwoWeekHigh"] = FiftyTwoWeekHigh
-        table_dict["EarningsPerShare"] = EarningsPerShare
-        table_dict["PE_Ratio"] = PE_Ratio
-        table_dict["DividendYield"] = DividendYield
-        table_dict["GrossProfitMargin"] = GrossProfitMargin
-        table_dict["NetIncome"] = NetIncome
-        table_dict["BookValuePerShare"] = BookValuePerShare
-        table_dict["TotalDebt"] = TotalDebt
-        table_dict["CurrentRatio"] = CurrentRatio
-        table_dict["DebtToEquityRatio"] = DebtToEquityRatio
+#     table = []
+#     for Ticker, MarketCap, FiftyTwoWeekHigh, EarningsPerShare, PE_Ratio, DividendYield, GrossProfitMargin, NetIncome, BookValuePerShare, TotalDebt, CurrentRatio, DebtToEquityRatio in results:
+#         table_dict = {}
+#         table_dict["Ticker"] = Ticker
+#         table_dict["MarketCap"] = MarketCap
+#         table_dict["FiftyTwoWeekHigh"] = FiftyTwoWeekHigh
+#         table_dict["EarningsPerShare"] = EarningsPerShare
+#         table_dict["PE_Ratio"] = PE_Ratio
+#         table_dict["DividendYield"] = DividendYield
+#         table_dict["GrossProfitMargin"] = GrossProfitMargin
+#         table_dict["NetIncome"] = NetIncome
+#         table_dict["BookValuePerShare"] = BookValuePerShare
+#         table_dict["TotalDebt"] = TotalDebt
+#         table_dict["CurrentRatio"] = CurrentRatio
+#         table_dict["DebtToEquityRatio"] = DebtToEquityRatio
 
-        table.append(table_dict)
+#         table.append(table_dict)
 
-    return jsonify(table)
+#     return jsonify(table)
 
-@app.route('/api/v1.0/chart')
-def chart():
-    session = Session(engine)
+# @app.route('/api/v1.0/chart')
+# def chart():
+#     session = Session(engine)
 
-    """Return a list of all dates for tickers"""
-    # Query all dates
-    results = session.query(Dow).all()
+#     """Return a list of all dates for tickers"""
+#     # Query all dates
+#     results = session.query(Dow).all()
 
-    session.close()
-    dates = results[3:270]
+#     session.close()
+#     dates = results[3:270]
 
-    return jsonify(dates)
+#     return jsonify(dates)
  
 
 
