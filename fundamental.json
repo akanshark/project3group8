@@ -1,0 +1,58 @@
+[
+ {
+   "Ticker": "AAPL",
+   "MarketCap": 2695340000000,
+   "FiftyTwoWeekHigh": 198.23,
+   "EarningsPerShare": 5.96,
+   "PE_Ratio": 28.926174,
+   "DividendYield": 0.0055,
+   "GrossProfitMargin": 0.43449003,
+   "NetIncome": 94760001536,
+   "BookValuePerShare": 3.852,
+   "TotalDebt": 109280000000,
+   "CurrentRatio": 0.982,
+   "DebtToEquityRatio": 181.305
+ },
+ {
+   "Ticker": "MSFT",
+   "MarketCap": 2328410000000,
+   "FiftyTwoWeekHigh": 366.78,
+   "EarningsPerShare": 9.69,
+   "PE_Ratio": 32.34159,
+   "DividendYield": 0.0093,
+   "GrossProfitMargin": 0.6892,
+   "NetIncome": 72361000960,
+   "BookValuePerShare": 27.748,
+   "TotalDebt": 79441002496,
+   "CurrentRatio": 1.769,
+   "DebtToEquityRatio": 38.522
+ },
+ {
+   "Ticker": "TSLA",
+   "MarketCap": 782484000000,
+   "FiftyTwoWeekHigh": 299.29,
+   "EarningsPerShare": 3.52,
+   "PE_Ratio": 70.036934,
+   "DividendYield": null,
+   "GrossProfitMargin": 0.21486,
+   "NetIncome": 12234999808,
+   "BookValuePerShare": 16.109,
+   "TotalDebt": 5810999808,
+   "CurrentRatio": 1.59,
+   "DebtToEquityRatio": 11.136
+ },
+ {
+   "Ticker": "GOOGL",
+   "MarketCap": 1675600000000,
+   "FiftyTwoWeekHigh": 139.16,
+   "EarningsPerShare": 4.84,
+   "PE_Ratio": 27.361568,
+   "DividendYield": null,
+   "GrossProfitMargin": 0.55594003,
+   "NetIncome": 60953001984,
+   "BookValuePerShare": 21.153,
+   "TotalDebt": 29432000512,
+   "CurrentRatio": 2.172,
+   "DebtToEquityRatio": 11.017
+ }
+]
