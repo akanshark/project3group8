@@ -6,7 +6,13 @@ function init() {
     y: [189.46,	189.7,	182.91,	177.56,	178.18,	179.36,	176.3,	174.21,	175.74,	175.01,	177.97,	179.07,	175.49,	173.93,	174.79,	176.08,	171.96,	170.43,	170.69,	171.21,	173.75,	171.9899] }];
     
     let layout = {
-      title: "AAPL Stock Price"
+      title: "AAPL Stock Price",
+      xaxis: {
+        title: "Date"
+      },
+      yaxis: {
+        title: "Stock Price"
+      }
     };
 
   Plotly.newPlot("plot", data, layout);
@@ -59,6 +65,7 @@ function updatePlotly() {
   
   var layout_update = {
     title: title, // updates the title
+    xaxis: xaxis // updates the x axis
 };
 
 Plotly.relayout("plot", layout_update)
